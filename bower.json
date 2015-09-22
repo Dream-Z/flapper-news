@@ -1,0 +1,21 @@
+{
+  "name": ".bowerrc",
+  "version": "0.0.0",
+  "authors": [
+    "dz.aleksey@gmail.com"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "directory": "vendor/assets/bower_components",
+  "dependencies": {
+    "angular": "~1.4.6",
+    "angular-ui-router": "~0.2.15",
+    "bootstrap": "~3.3.5"
+  }
+}
