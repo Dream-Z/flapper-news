@@ -2,7 +2,7 @@
  * Created by lexx on 9/21/15.
  */
 
-angular.module('flapperNews', ['ui.router'])
+angular.module('flapperNews', ['ui.router', 'templates'])
     .config([
         '$stateProvider',
         '$urlRouterProvider',
@@ -10,12 +10,12 @@ angular.module('flapperNews', ['ui.router'])
             $stateProvider
                 .state('home', {
                     url: '/home',
-                    templateUrl: '/home.html',
+                    templateUrl: 'home/_home.html',
                     controller: 'MainCtrl'
                 })
                 .state('posts', {
                     url: '/posts/{id}',
-                    templateUrl: '/posts.html',
+                    templateUrl: 'posts/_posts.html',
                     controller: 'PostsCtrl'
                 });
             $urlRouterProvider.otherwise('home');
@@ -23,10 +23,7 @@ angular.module('flapperNews', ['ui.router'])
     ])
     .factory('posts', [function(){
         // .......
-        var o = {
-            posts: []
-        };
-        return o;
+
     }])
 
     .controller('PostsCtrl', [
