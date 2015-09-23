@@ -6,7 +6,8 @@ angular.module('flapperNews', ['ui.router', 'templates'])
     .config([
         '$stateProvider',
         '$urlRouterProvider',
-        function($stateProvider, $urlRouterProvider){
+        '$locationProvider',
+        function($stateProvider, $urlRouterProvider, $locationProvider){
             $stateProvider
                 .state('home', {
                     url: '/home',
@@ -19,69 +20,13 @@ angular.module('flapperNews', ['ui.router', 'templates'])
                     controller: 'PostsCtrl'
                 });
             $urlRouterProvider.otherwise('home');
+
+            $locationProvider.html5Mode(true);
         }
     ])
     .factory('posts', [function(){
         // .......
 
+        //gogog
     }])
-
-    .controller('PostsCtrl', [
-        '$scope',
-        '$stateParams',
-        'posts',
-        function($scope, $stateParams, posts){
-            // ...
-            $scope.posts = posts.posts[$stateParams.id];
-
-            $scope.addComment = function(){
-                if($scope.body === '') { return; }
-                $scope.posts.comments.push({   // $scope.post.comments.push({
-                    body: $scope.body,
-                    author: 'user',
-                    upvotes: 0
-                });
-                $scope.body = '';
-            };
-        }
-    ])
-
-    .controller('MainCtrl', [
-        '$scope',
-        'posts',
-        function($scope, posts){
-            $scope.posts = posts.posts;
-
-            //$scope.posts = [
-            //    { title: 'post1', upvotes: 5 },
-            //    { title: 'post2', upvotes: 2 },
-            //    { title: 'post3', upvotes: 15 },
-            //    { title: 'post4', upvotes: 9 },
-            //    { title: 'post5', upvotes: 4 },
-            //    { title: 'post6', upvotes: 51 }
-            //];
-
-            $scope.addPost = function(){
-                if(!$scope.title || $scope.title === '') { return; }
-                $scope.posts.push({
-                    title: $scope.title,
-                    link: $scope.link,
-                    upvotes: Math.round(Math.random()*10),
-                    comments: [
-                        {author: 'Joe', body: 'Cool post', upvotes: 0},
-                        {author: 'Bob', body: 'Great idea but everything is wrong', upvotes: 0}
-                    ]
-                });
-                $scope.title = '';
-                $scope.link = '';
-            };
-
-            $scope.incrementUpvotes = function(post){
-              post.upvotes += 1;
-            };
-            $scope.decrementUpvotes = function(post){
-                  post.upvotes -= 1;
-            };
-        }
-    ]
-);
+;
